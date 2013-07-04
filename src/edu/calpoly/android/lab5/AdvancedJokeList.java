@@ -15,7 +15,6 @@ import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -127,7 +126,6 @@ public class AdvancedJokeList extends SherlockActivity {
 		public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
 			//set ListView to have an OnItemLongClickListener to trigger the firing of
 			//the Action Mode Callback
-			Toast.makeText(getBaseContext(), "in callback", Toast.LENGTH_SHORT).show();
 			switch(item.getItemId()) {
 				case R.id.menu_remove:
 					//find position of joke in the filtered array
@@ -167,7 +165,6 @@ public class AdvancedJokeList extends SherlockActivity {
 	 * Set ListView to have an OnItemLongClickListener
 	 */
 	protected void initLongClickListener() {
-		Toast.makeText(getBaseContext(), "in long click method", Toast.LENGTH_SHORT).show();
 		m_vwJokeLayout.requestFocus();
 		m_vwJokeLayout.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
@@ -228,7 +225,6 @@ public class AdvancedJokeList extends SherlockActivity {
 		SharedPreferences preferences = getPreferences(Activity.MODE_PRIVATE);
 		//retrieve the text that was saved
 		String retrieved_text = preferences.getString(SAVED_EDIT_TEXT, "");
-		Toast.makeText(getBaseContext(), "current text:  " + retrieved_text, Toast.LENGTH_SHORT).show();
 		//set text in m_vwJokeEditText to the text retrieved
 		this.m_vwJokeEditText.setText(retrieved_text);
 		this.m_jokeAdapter.notifyDataSetChanged();	
@@ -244,7 +240,6 @@ public class AdvancedJokeList extends SherlockActivity {
 			//set the filter for sorting and display the appropriate jokes
 			case R.id.submenu_like:
 				filter = AdvancedJokeList.FILTER_LIKE;
-				//Toast.makeText(this,"like jokes",Toast.LENGTH_SHORT).show();
 				updateFilteredJokes(filter);
 				//change menu's text
 				onPrepareOptionsMenu(m_vwMenu);
@@ -399,7 +394,6 @@ public class AdvancedJokeList extends SherlockActivity {
 		
 		//store the text in m_vwJokeEditText in the SharedPreferences
 		String text = this.m_vwJokeEditText.getText().toString();
-		Toast.makeText(getBaseContext(), "current text:  " + text, Toast.LENGTH_SHORT).show();
 		editor.putString(AdvancedJokeList.SAVED_EDIT_TEXT, text);
 		//need to call this to have any changes performed in the Editor show up in the 
 		//Shared preferences
@@ -485,7 +479,7 @@ public class AdvancedJokeList extends SherlockActivity {
 	
 		//get the name for the action bar based on the current filter
 		String name = getMenuTitleChange();
-		Toast.makeText(getBaseContext(), "current filter name:  " + name, Toast.LENGTH_SHORT).show();
+		
 		//set the title text of the filter
 		filter.setTitle(name);
 		
@@ -521,10 +515,11 @@ public class AdvancedJokeList extends SherlockActivity {
 		toast.show();
 
 
-		//TODO: create an AsyncTask inner class and call execute on it
-		//TODO: use URL, Scanner, and InputStreamReader to download all jokes
-		//TODO: use add jokes on the UI thread (in onPostExecute)
-		//TODO: use Toast to notify the user that the download is complete
+		/** create an AsyncTask inner class and call execute on it
+		use URL, Scanner, and InputStreamReader to download all jokes
+		use add jokes on the UI thread (in onPostExecute)
+		use Toast to notify the user that the download is complete*/
+		
 		try {
 			URL url = new URL("http://simexusa.com/aac/getAllJokes.php?author=defaulto");
 
