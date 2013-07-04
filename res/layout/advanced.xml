@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Note: You must use the following id's for this list of UI Components defined in
+	  AdvancedJokeList.java 
+	  	UI Component 					Required Resource ID
+	  	....................................................
+		EditText m_vwJokeEditText: 		"newJokeEditText"
+		Button m_vwJokeButton: 			"addJokeButton"
+		LinearLayout m_vwJokeLayout: 	"jokeListViewGroup"
+-->
+
+<!--
+	 This Root element is here as a place holder to prevent compilation
+     errors.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <!--horizontal layout for the button and text field  -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingBottom= "3dp"  > 
+
+	    <Button
+	        android:id="@+id/addJokeButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/Add_Joke" />
+
+	    <EditText
+	        android:id="@+id/newJokeEditText"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/Enter_joke"
+	        android:nextFocusDown="@+id/jokeListViewGroup" 
+	       />
+	</LinearLayout>
+	
+	<!-- vertical layout for the jokes  -->
+
+	<ListView
+	    android:id="@+id/jokeListViewGroup"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+	</ListView>
+
+</LinearLayout>

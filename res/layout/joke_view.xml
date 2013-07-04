@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Note: You must use the following id's for this list of UI Components defined in
+	  JokeView.java
+	  	UI Component 					Required Resource ID
+	  	....................................................
+		RadioButton m_vwLikeButton: 	"likeButton"
+		RadioButton m_vwDislikeButton: 	"dislikeButton"
+		RadioGroup m_vwLikeGroup: 		"ratingRadioGroup"
+		TextView m_vwJokeText: 			"jokeTextView"
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity = "center_vertical" >
+
+    <!-- horizontal layout for the buttona and text field -->
+
+    <TextView
+        android:id="@+id/jokeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:focusable="false"/>
+
+    <RadioGroup
+        android:id="@+id/ratingRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:focusable="false">
+
+        <RadioButton 
+            android:id="@+id/likeButton"
+            android:button="@null"
+            android:background="@drawable/like"
+            android:focusable="false"/>
+        <RadioButton 
+            android:id = "@+id/dislikeButton"
+            android:button="@null"
+            android:background="@drawable/dislike"
+            android:focusable="false"/>
+    </RadioGroup>
+
+</LinearLayout>
